@@ -11,16 +11,33 @@ const app = new Vue( {
         ]
             
     },
+
+    mounted: function() {
+        var time = 3000;
+		setInterval( () => {
+        if (this.nextPhoto()) {
+            time = 3000;
+         }
+    }, time);
+	},
+    // mounted: function() {
+    //     var time = 3000;
+    //     setInterval( () => {
+    //       this.nextPhoto();
+    //     }, time);
+    //   },
+	
+
     methods: {
         prevPhoto() {
             this.counterPhotos -= 1;
            if (this.counterPhotos < 0) {
-            this.counterPhotos = (this.photos.lenght -1);
+            this.counterPhotos = (this.photos.length- 1);
            }
         },
         nextPhoto() {
             this.counterPhotos += 1;
-            if (this.counterPhotos == (this.photos.lenght -1)) this.counterPhotos = 0;
+            if (this.counterPhotos == (this.photos.length- 1)) this.counterPhotos = 0;
         }
     }
    
