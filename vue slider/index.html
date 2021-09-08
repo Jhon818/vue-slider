@@ -13,16 +13,18 @@
 <div id="root" class="container">
 
     <div class="slider-wrapper">
-        <div class="prev">
+        <div class="prev" @click="prevPhoto">
             <i class="far fa-hand-point-left"></i>
         </div>
         
-            <img class="images"  :src="photos[1]" alt="image1">
+            <img class="images"  :src="photos[counterPhotos]" alt="image1">
         
-        <div class="next">
+        <div class="next" @click="nextPhoto">
             <i class="far fa-hand-point-right"></i>
         </div>
-        
+        <nav>
+            <i :class="index == counterPhotos ? 'active' : null " class="fas fa-dot-circle" v-for="(photo,index) in photos"></i>
+        </nav>
     </div>
 </div>
 
